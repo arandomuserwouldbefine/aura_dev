@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600&family=Roboto:wght@900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ecf0f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.parent-circle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 600px;
+    border: 100px solid #ecf0f3;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transform-style: preserve-3d; /* Promote 3D rendering for smoother animation */
+    backface-visibility: hidden;
+}
+
+.top-shadow {
+    /* Outer white shadow on the top (spread and blur) */
+    box-shadow:
+        0 -2px 5px rgba(255, 255, 255, 0.3),
+        0 -5px 10px rgba(255, 255, 255, 0.5),
+        0 -10px 15px rgba(255, 255, 255, 0.7),
+        0 -18px 25px rgba(255, 255, 255, 0.9),
+        0 -34px 40px rgba(255, 255, 255, 1),
+        0 -80px 60px rgba(255, 255, 255, 1);
+    animation: rotateTop 8s linear infinite;
+    transform: translateZ(0); /* Apply the translateZ trick */
+}
+
+.bottom-shadow {
+    /* Outer black shadow on the bottom (spread and blur) */
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.015),
+        0 5px 20px rgba(0, 0, 0, 0.02),
+        0 10px 30px rgba(0, 0, 0, 0.025),
+        0 18px 50px rgba(0, 0, 0, 0.03),
+        0 34px 80px rgba(0, 0, 0, 0.035),
+        0 80px 120px rgba(0, 0, 0, 0.04);
+    animation: rotateBottom 8s linear infinite;
+    transform: translateZ(0);
+}
+
+
+@keyframes rotateTop {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateBottom {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.inner-circle-white {
+    position: absolute;
+    box-shadow:
+        inset 0px -2px 5px rgba(255, 255, 255, 0.3),
+        inset 0px -5px 10px rgba(255, 255, 255, 0.5),
+        inset 0px -10px 15px rgba(255, 255, 255, 0.7),
+        inset 0px -18px 25px rgba(255, 255, 255, 0.9),
+        inset 0px -3px 4px rgba(255, 255, 255, 1.2);
+    z-index: -1; /* Set a lower z-index for the inner circle */
+}
+
+.inner-circle-black {
+    position: absolute;
+    box-shadow:
+        inset 0px 2px 5px rgba(0 , 0, 0, 0.02),
+        inset 0px 5px 10px rgba(0, 0, 0, 0.04),
+        inset 0px 10px 15px rgba(0,0,0, 0.06),
+        inset 0px 18px 25px rgba(0,0,0, 0.08),
+        inset 0px 23px 30px rgba(0,0,0, 0.010),
+        inset 0px 30px 35px rgba(0,0,0, 0.014),
+        inset 0px 40px 50px rgba(0,0,0, 0.02),
+        inset 0px 3px 4px rgba(0,0,0, 0.10);
+    z-index: -1; /* Set a lower z-index for the inner circle */
+}
+
+
+.text-container{
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+}
+
+#logo{
+    margin-bottom:20px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .parent-circle{
+    height: 400px;
+    width: 400px;
+    border:70px solid #ecf0f3;
+  }
+  #logo{
+    height: 70px;
+    width: 70px;
+  }
+  h3{
+    font-size: 1.4rem;
+  }
+}
